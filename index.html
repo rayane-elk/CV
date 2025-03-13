@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rayane El Kamri - Portfolio</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #0062b8, #003366);
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid white;
+            object-fit: cover;
+            margin-bottom: 20px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: #666;
+        }
+
+        .name {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            margin: 0 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-item i {
+            margin-right: 8px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            display: block;
+            padding: 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: #0062b8;
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #0062b8;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: #0062b8;
+            margin: 10px auto;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+
+        .about-info {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+        }
+
+        .info-item strong {
+            color: #0062b8;
+            display: inline-block;
+            width: 120px;
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: #0062b8;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            background-color: inherit;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .timeline-content h3 {
+            color: #0062b8;
+            margin-bottom: 10px;
+        }
+
+        .timeline-date {
+            color: #777;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        /* Education Section */
+        .education-item {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .education-item h3 {
+            color: #0062b8;
+            margin-bottom: 10px;
+        }
+
+        .education-date {
+            color: #777;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .skills-category {
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 30px;
+        }
+
+        .skills-category h3 {
+            color: #0062b8;
+            margin-bottom: 20px;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background-color: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background-color: #0062b8;
+            border-radius: 5px;
+        }
+
+        /* Activities Section */
+        .activities-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .activity-item {
+            flex: 0 0 calc(50% - 15px);
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .activity-item h3 {
+            color: #0062b8;
+            margin-bottom: 10px;
+        }
+
+        .activity-date {
+            color: #777;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .social-links li {
+            margin: 0 10px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #66b3ff;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* Mobile Responsive */
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .activity-item {
+                flex: 0 0 100%;
+            }
+
+            .nav-links li a {
+                padding: 15px 10px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-img">
+                    <img src="photos/WhatsApp Image 2025-03-13 at 12.34.40 AM.jpeg" alt="Rayane El Kamri" style="width: 100%; height: 100%; border-radius: 50%;">
+                </div>
+                <h1 class="name">Rayane El Kamri</h1>
+                <p class="title">Étudiant en première année d'ingénierie</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>monikate64@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+212 60646-1265</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>KENITRA, Maroc</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#experience">Expérience</a></li>
+                <li><a href="#education">Formation</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#activities">Activités</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">À propos de moi</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Bonjour ! Je suis Rayane El Kamri, étudiant passionné en première année d'ingénierie. Motivé par l'innovation et la résolution de problèmes, je cherche constamment à développer mes compétences techniques et à contribuer à des projets qui ont un impact positif sur notre société.</p>
+                    <p>Curieux et déterminé, j'aime relever de nouveaux défis et apprendre de nouvelles technologies. Mon parcours académique et mes activités parascolaires m'ont permis de développer une approche méthodique et créative face aux problèmes complexes.</p>
+                </div>
+                <div class="about-info">
+                    <div class="info-item">
+                        <strong>Nom complet:</strong> Rayane El Kamri
+                    </div>
+                    <div class="info-item">
+                        <strong>Email:</strong> monikate64@gmail.com
+                    </div>
+                    <div class="info-item">
+                        <strong>Téléphone:</strong> +212 60646-1265
+                    </div>
+                    <div class="info-item">
+                        <strong>Adresse:</strong> KENITRA, Maroc
+                    </div>
+                    <div class="info-item">
+                        <strong>Âge:</strong> 19 ans
+                    </div>
+                    <div class="info-item">
+                        <strong>Langues:</strong> Français, Arabe, Anglais
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" style="background-color: #eef6fc;">
+        <div class="container">
+            <h2 class="section-title">Expérience professionnelle</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Stage d'observation - superseram Maroc</h3>
+                        <div class="timeline-date">Juillet 2024</div>
+                        <p>Stage d'observation dans une entreprise de développement de logiciels. Découverte des métiers de l'ingénierie informatique et participation à des sessions de formation sur les bases de la programmation.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>video editing - Groupe developement google</h3>
+                        <div class="timeline-date">Septembre 2023 - Présent</div>
+                        <p>Assistance en video editing pour le club GDG et participation en seance qui sert a enseigner des nouveauxs competences </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Projet scolaire - soft et hardwere de projet</h3>
+                        <div class="timeline-date">Janvier - Mars 2024</div>
+                        <p>Participation à un projet de conception d'une application mobile pour améliorer la vie étudiante. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Formation académique</h2>
+            <div class="education-item">
+                <h3>Première année d'ingénierie - École Nationale des Sciences Appliquées</h3>
+                <div class="education-date">Septembre 2024- Présent</div>
+                <p>Cursus général d'ingénierie avec une spécialisation prévue en informatique et réseaux. Cours fondamentaux en mathématiques, physique, informatique et sciences de l'ingénieur.</p>
+                <p><strong>Modules clés:</strong> Algorithmique, Programmation C, Algèbre linéaire, Analyse mathématique, Électronique numérique, Mécanique</p>
+            </div>
+            <div class="education-item">
+                <h3>Baccalauréat Sciences Mathématiques - LYCEE QUALIFIANT MOHAMMED ECHRAYBI</h3>
+                <div class="education-date">Septembre 2023 - Juin 2024</div>
+                <p>Diplôme obtenu avec mention Bien (14.5/20).science mathématique option A .</p>
+                <p><strong>Points forts:</strong> Mathématiques , Physique-Chimie , Informatique .</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" style="background-color: #eef6fc;">
+        <div class="container">
+            <h2 class="section-title">Compétences</h2>
+            <div class="skills-container">
+                <div class="skills-category">
+                    <h3>Compétences techniques</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>HTML/CSS</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>JavaScript</span>
+                            <span>40%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Python</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>C/C++</span>
+                            <span>30%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 65%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Base de données (SQL)</span>
+                            <span>10%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-category">
+                    <h3>Compétences transversales</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Travail d'équipe</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Communication</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Résolution de problèmes</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Adaptabilité</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Gestion du temps</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities">
+        <div class="container">
+            <h2 class="section-title">Activités parascolaires</h2>
+            <div class="activities-container">
+                <div class="activity-item">
+                    <h3>Club Robotique</h3>
+                    <div class="activity-date">Septembre 2024 - Présent</div>
+                    <p>Membre actif du club de robotique de l'école d'ingénieurs. Participation à la conception et programmation de robots pour des compétitions nationales.</p>
+                </div>
+                <div class="activity-item">
+                    <h3>Association Jeunesse Numérique</h3>
+                    <div class="activity-date">Octobre 2024 - Présent</div>
+                    <p>Bénévole dans une association qui promeut l'accès au numérique pour les jeunes des quartiers défavorisés. Animation d'ateliers d'initiation à la programmation.</p>
+                </div>
+                <div class="activity-item">
+                    <h3>Hackathon Innovation Durable</h3>
+                    <div class="activity-date">Février 2025</div>
+                    <p>Participation à un hackathon sur les solutions technologiques pour le développement durable. Projet présenté : application de suivi de consommation énergétique.</p>
+                </div>
+                <div class="activity-item">
+                    <h3>Club Entrepreneuriat</h3>
+                    <div class="activity-date">Octobre 2024 - Présent</div>
+                    <p>Membre du club entrepreneuriat de l'école. Participation à des ateliers sur la création d'entreprise et le développement de business plans.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <ul class="social-links">
+                <li><a href="https://www.linkedin.com/in/rayan-elkamri-a6ba32240/"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="https://github.com/rayane-elk"><i class="fab fa-github"></i></a></li>
+                <li><a href="https://x.com/RElkamri"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/elk_rayan/"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+            <p class="copyright">© 2025 Rayane El Kamri. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation for skill bars on scroll
+        function animateSkills() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const percentage = bar.parentElement.previousElementSibling.lastElementChild.textContent;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.transition = 'width 1s ease-in-out';
+                    bar.style.width = percentage;
+                }, 300);
+            });
+        }
+
+        // Activate animations when scrolling to the skills section
+        const skillsSection = document.getElementById('skills');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkills();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(skillsSection);
+
+        // Highlight active navigation link based on scroll position
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.style.color = '#333';
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.style.color = '#0062b8';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
